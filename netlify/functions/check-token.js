@@ -5,6 +5,7 @@ exports.handler = async function(event, context) {
   const token = event.queryStringParameters && event.queryStringParameters.token;
 
   if (!token || !validTokens.includes(token)) {
+    console.log("auth failed")
     return {
       statusCode: 403,
       body: JSON.stringify({ message: "Access Denied: Invalid token" }),
